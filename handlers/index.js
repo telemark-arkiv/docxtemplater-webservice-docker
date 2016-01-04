@@ -11,43 +11,42 @@ function showFrontpage (request, reply) {
 }
 
 function handleUpload (request, reply) {
-  var convertToFormat = request.params.format
   var data = request.payload
   if (data.file) {
     var nameArray = data.file.hapi.filename.split('.')
-    var newNameConverted = nameArray.join('.') + '.' + convertToFormat
-    var fileEndingOriginal = nameArray.pop()
+    var newNameConverted = nameArray.join('.') + '.formatted.docx'
     var temporaryName = uuid.v4()
     var pathPre = process.cwd() + '/uploads/' + temporaryName
-    var fileNameTempOriginal = pathPre + '.' + fileEndingOriginal
-    var fileNameTempConverted = pathPre + '.' + convertToFormat
+    var fileNameTempOriginal = pathPre + '.original.docx'
+    var fileNameTempConverted = pathPre + '.formatted.docx'
     var file = fs.createWriteStream(fileNameTempOriginal)
 
-    file.on('error', function (err) {
-      console.error(err)
+    file.on('error', function (error) {
+      reply(error)
     })
 
     data.file.pipe(file)
 
-    data.file.on('end', function (err) {
+    file.on('finish', function (err) {
       if (err) {
         reply(err)
       } else {
-        createDocument(fileNameTempOriginal, convertToFormat, function (err, result) {
+        delete data['file']
+        var options = {
+          templateFilePath: fileNameTempOriginal,
+          templateData: data,
+          docFilePath: fileNameTempConverted
+        }
+        createDocument(options, function (err, result) {
           if (err) {
             reply(err)
           } else {
-            fs.writeFile(fileNameTempConverted, result, function (err) {
-              if (err) {
-                reply(err)
-              } else {
-                reply.file(fileNameTempConverted, {
-                  filename: newNameConverted
-                }).on('finish', function () {
-                  fs.unlink(fileNameTempOriginal)
-                  fs.unlink(fileNameTempConverted)
-                })
-              }
+            console.log(result)
+            reply.file(fileNameTempConverted, {
+              filename: newNameConverted
+            }).on('finish', function(){
+              fs.unlink(fileNameTempOriginal)
+              fs.unlink(fileNameTempConverted)
             })
           }
         })
