@@ -44,7 +44,7 @@ function handleUpload (request, reply) {
             console.log(result)
             reply.file(fileNameTempConverted, {
               filename: newNameConverted
-            }).on('finish', function(){
+            }).on('finish', function () {
               fs.unlink(fileNameTempOriginal)
               fs.unlink(fileNameTempConverted)
             })
