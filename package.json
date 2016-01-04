@@ -1,0 +1,38 @@
+{
+  "name": "docxtemplater-webservice-docker",
+  "version": "1.0.0",
+  "description": "Upload template and data, get formatted document in return",
+  "license": "MIT",
+  "author": {
+    "name": "Geir Gåsodden",
+    "email": "geir.gasodden@pythonia.no",
+    "url": "https://github.com/zrrrzzt"
+  },
+  "bugs": {
+    "url": "https://github.com/telemark/docxtemplater-webservice-docker/issues"
+  },
+  "homepage": "https://github.com/telemark/docxtemplater-webservice-docker",
+  "main": "index.js",
+  "engines": {
+    "node": ">=4.2.4"
+  },
+  "scripts": {
+    "test": "standard && tap --reporter=spec test/*.js",
+    "coverage": "tap test/*.js --coverage",
+    "coveralls": "tap --cov --coverage-report=lcov test/*.js && cat coverage/lcov.info | coveralls",
+    "start": "node standalone.js",
+    "setup": "npm install && node setup.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/telemark/docxtemplater-webservice-docker.git"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.6",
+    "standard": "^5.4.1",
+    "tap": "^4.0.0"
+  },
+  "dependencies": {
+    "docxtemplater": "^1.2.1"
+  }
+}
