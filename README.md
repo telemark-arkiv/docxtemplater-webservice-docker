@@ -11,3 +11,17 @@ curl \
   -F "file=@test/data/testdoc.docx" \
   http://localhost:3000 > converted.docx
 ```
+
+## Docker
+
+Build the image
+
+```sh
+$ docker build -t docxtemplater .
+```
+
+Run the image
+
+```sh
+docker run -d -p 80:3000 --name docx docxtemplater
+```
