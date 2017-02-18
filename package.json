@@ -1,6 +1,6 @@
 {
   "name": "docxtemplater-webservice-docker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Upload template and data, get formatted document in return",
   "license": "MIT",
   "author": {
