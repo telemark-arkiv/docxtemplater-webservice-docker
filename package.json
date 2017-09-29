@@ -28,7 +28,7 @@
     "url": "git://github.com/telemark/docxtemplater-webservice-docker.git"
   },
   "devDependencies": {
-    "coveralls": "^2.11.6",
+    "coveralls": "^3.0.0",
     "standard": "^10.0.2",
     "tap": "^10.0.2"
   },
