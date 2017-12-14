@@ -30,7 +30,7 @@
   "devDependencies": {
     "coveralls": "^3.0.0",
     "standard": "^10.0.2",
-    "tap": "^10.0.2"
+    "tap": "^11.0.0"
   },
   "dependencies": {
     "docxtemplater": "^3.0.3",
