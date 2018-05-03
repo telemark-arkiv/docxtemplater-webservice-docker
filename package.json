@@ -29,14 +29,14 @@
     "url": "git://github.com/telemark/docxtemplater-webservice-docker.git"
   },
   "devDependencies": {
-    "coveralls": "^3.0.0",
-    "standard": "^11.0.0",
-    "tap": "^11.0.0"
+    "coveralls": "3.0.1",
+    "standard": "11.0.1",
+    "tap": "11.1.4"
   },
   "dependencies": {
-    "docxtemplater": "^3.4.0",
-    "hapi": "^17.0.2",
-    "inert": "^4.1.0",
-    "uuid": "^3.0.1"
+    "docxtemplater": "3.6.2",
+    "hapi": "17.4.0",
+    "inert": "4.2.1",
+    "uuid": "3.2.1"
   }
 }
