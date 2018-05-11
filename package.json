@@ -36,7 +36,7 @@
   "dependencies": {
     "docxtemplater": "3.6.2",
     "hapi": "17.4.0",
-    "inert": "4.2.1",
+    "inert": "5.1.0",
     "uuid": "3.2.1"
   }
 }
