@@ -34,7 +34,7 @@
     "tap": "11.1.5"
   },
   "dependencies": {
-    "docxtemplater": "3.6.2",
+    "docxtemplater": "3.6.3",
     "hapi": "17.4.0",
     "inert": "4.2.1",
     "uuid": "3.2.1"
